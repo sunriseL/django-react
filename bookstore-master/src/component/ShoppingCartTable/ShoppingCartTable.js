@@ -51,7 +51,7 @@ export default class ShoppingCartTable extends Component{
     return(
     <div>
     <span style={{'textAlign':'center','fontSize':30,'lineHeight':1.5}}>购物车</span>
-     <Table  columns={this.state.header} dataSource={this.state.message} />
+     <Table  rowKey="good_id" columns={this.state.header} dataSource={this.state.message} />
      <Button
        style={{"margin":20}}
        type="primary"

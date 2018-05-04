@@ -96,6 +96,9 @@ export default class GoodTable extends Component{
       header: header,
     }
   }
+  componentWillMount(){
+      console.log("子组件得到data:" + this.props.data)
+  }
   start = () => {
     this.setState({ loading: true });
     // ajax request after empty completing
@@ -107,12 +110,13 @@ export default class GoodTable extends Component{
     }, 1000);
   }
   onSelectChange = (selectedRowKeys) => {
+      console.log("change 子组件得到data:" + this.props.data)
     console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
   }
   addToCart = () => {
     var result = [];
-    var data = this.state.tableData;
+    var data = this.props.data;
     //console.log(data);
     this.state.selectedRowKeys.forEach(function(value,index,array){
       //console.log(value)
@@ -144,7 +148,7 @@ export default class GoodTable extends Component{
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
           </span>
         </div>
-        <Table rowSelection={rowSelection} columns={this.state.header} dataSource={this.state.tableData} />
+        <Table rowKey="good_id" rowSelection={rowSelection} columns={this.state.header} dataSource={this.props.data} />
         <Button
           style={{"margin":20}}
           type="primary"

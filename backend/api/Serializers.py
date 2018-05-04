@@ -4,10 +4,10 @@ import json
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from .models import GoodsModel
+from api.models import GoodsModel
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class GoodSerializer(serializers.ModelSerializer):
      class Meta:
          model = GoodsModel
-         fields = ('created', 'key', 'book', 'author', 'language', 'published','sales')
+         fields = ('created_at', 'good_id', 'book', 'author', 'language', 'published','sales')
