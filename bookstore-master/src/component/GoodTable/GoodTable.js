@@ -2,54 +2,14 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import { Table, Icon, Divider, Button } from 'antd';
 import emitter from 'util/event';
+import store from '../../store';
+import {URL} from '../../config/Api';
+import {apiClient} from'util/ApiClient';
 import 'antd/lib/table/style';
 import 'antd/lib/button/style';
 
 
 
-const tableData = [
-  {
-    key:'1',
-    book: 'Dream',
-    author: 'Cao Xueqin',
-    language: 'Chinese',
-    published: '1754-1791',
-    sales: '100 million',
-  },
-  {
-    key:'2',
-    book: 'Dream',
-    author: 'Cao Xueqin',
-    language: 'Chinese',
-    published: '1764-1791',
-    sales: '100 million',
-  },
-  {
-    key:'3',
-    book: 'Dream',
-    author: 'Cao Xueqin',
-    language: 'Chinese',
-    published: '1734-1791',
-    sales: '100 million',
-  },
-  {
-    key:'4',
-    book: 'Dream',
-    author: 'Cao Xueqin',
-    language: 'Chinese',
-    published: '1744-1791',
-    sales: '100 million',
-  },
-  {
-    key:'5',
-    book: 'Dream',
-    author: 'Cao Xueqin',
-    language: 'Chinese',
-    published: '1784-1791',
-    sales: '100 million',
-  },
-
-];
 
 const header=[{
     title: 'Book',
@@ -92,7 +52,6 @@ export default class GoodTable extends Component{
     this.state = {
       selectedRowKeys: [],
       loading: false,
-      tableData: tableData,
       header: header,
     }
   }
@@ -117,13 +76,20 @@ export default class GoodTable extends Component{
   addToCart = () => {
     var result = [];
     var data = this.props.data;
+    var username = store
     //console.log(data);
     this.state.selectedRowKeys.forEach(function(value,index,array){
       //console.log(value)
       //console.log(data[value-1])
-      result.push(data[value - 1])
+      var good = data[value - 1];
+      apiClient().post(URL + '/api/add/to/cart',{
+          username:store.getState().username,
+          good_id: good.good_id
+      }).then(function(response){
+
+      });
+      //result.push(data[value - 1])
     })
-      emitter.emit('changeMessage',result)
   }
   render() {
     const { loading, selectedRowKeys } = this.state;

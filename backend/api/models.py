@@ -16,3 +16,8 @@ class GoodsModel(models.Model):
     language = models.CharField(max_length=100)
     published = models.CharField(max_length=100)
     sales = models.IntegerField()
+
+class Cart(models.Model):
+    username = models.CharField(max_length=100)
+    good_id = models.IntegerField()
+    number = models.IntegerField()

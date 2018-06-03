@@ -4,29 +4,16 @@ import { Table, Icon, Divider, Button } from 'antd';
 import 'antd/lib/table/style';
 import 'antd/lib/button/style';
 const header=[{
-    title: 'Book',
-    dataIndex: 'book',
-    key: 'book'
+    title: 'book_id',
+    dataIndex: 'good_id',
+    key: 'good_id'
   },{
-    title: 'Author',
-    dataIndex: 'author',
-    key: 'author',
-  },{
-  title: 'Language',
-  dataIndex: 'language',
-  key: 'language',
-},{
-  title: 'Published',
-  dataIndex: 'published',
-  key: 'published',
-  defaultSortOrder: 'descend',
-  sorter: (a,b) => a.published > b.published,
-},{
-  title: 'Sales',
-  dataIndex: 'sales',
-  key: 'sales',
+  title: 'number',
+  dataIndex: 'number',
+  key: 'number',
 }
 ]
+
 
 
 export default class ShoppingCartTable extends Component{
@@ -38,20 +25,14 @@ export default class ShoppingCartTable extends Component{
         };
   }
   componentDidMount() {
-        // 组件装载完成以后声明一个自定义事件
-        this.eventEmitter = emitter.addListener('changeMessage', (message) => {
-          console.log(message);
-            this.setState({
-                message,
-            });
-        });
+        console.log(this.props.data)
     }
 
   render(){
     return(
     <div>
     <span style={{'textAlign':'center','fontSize':30,'lineHeight':1.5}}>购物车</span>
-     <Table  rowKey="good_id" columns={this.state.header} dataSource={this.state.message} />
+     <Table  rowKey="good_id" columns={this.state.header} dataSource={this.props.data} />
      <Button
        style={{"margin":20}}
        type="primary"

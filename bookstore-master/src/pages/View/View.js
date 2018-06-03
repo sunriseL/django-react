@@ -53,11 +53,7 @@ class Page1 extends Component {
           <GoodTable data={this.state.data}/>
           </div>
           </Paper>
-          <Paper style={style} zDepth={1}>
-          <div style={{margin:5}}>
-          <ShoppingCartTable/>
-          </div>
-          </Paper>
+
           </div>
         )
     }
