@@ -25,6 +25,7 @@ const getRouter = () => {
                 <Route componet exact path="/login" component={Login}/>
                 <Route componet exact path="/view" component={View}/>
                 <Route componet exact path="/register" component={Register}/>
+                <Route componet exact path="/cart" component={ShoppingCart}/>
                 <Route componet exact path="/usr/:name" component={UserProfile}/>
                 <Route path="*" component={Login} />
             </Switch>
