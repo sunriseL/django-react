@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'cart/',cart_list),
     url(r'register/',register),
     url(r'^auth$', drf_views.obtain_auth_token, name='auth')
+    
 ]
