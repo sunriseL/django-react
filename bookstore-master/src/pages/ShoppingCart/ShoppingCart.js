@@ -32,6 +32,7 @@ class ShoppingCart extends Component {
         var com = this;
         apiClient().get(URL + "/api/cart/" + "?username=" + store.getState().username).then(function(response) {
             console.log("get data : "+response.data)
+            
             com.setState({data:response.data})
         })
     }

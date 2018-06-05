@@ -5,6 +5,7 @@ import Home from 'pages/Home/Home';
 import Page1 from 'pages/Page1/Page1';
 import Login from 'pages/Login/Login';
 import View from 'pages/View/View';
+import Order from 'pages/Order/Order';
 import Register from 'pages/Register/Register'
 import ShoppingCart from 'pages/ShoppingCart/ShoppingCart';
 import MyHeader from 'component/Header/Header';
@@ -26,6 +27,7 @@ const getRouter = () => {
                 <Route componet exact path="/view" component={View}/>
                 <Route componet exact path="/register" component={Register}/>
                 <Route componet exact path="/cart" component={ShoppingCart}/>
+                <Route componet exact path="/order" component={Order}/>
                 <Route componet exact path="/usr/:name" component={UserProfile}/>
                 <Route path="*" component={Login} />
             </Switch>

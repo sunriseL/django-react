@@ -4,7 +4,7 @@ import json
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from api.models import GoodsModel,Cart
+from api.models import GoodsModel,Cart,Order
 
 
 class GoodSerializer(serializers.ModelSerializer):
@@ -15,4 +15,9 @@ class GoodSerializer(serializers.ModelSerializer):
 class CartSerializer(serializers.ModelSerializer):
      class Meta:
          model = Cart
-         fields = ('username', 'good_id', 'number')
+         fields = ('username', 'good', 'number')
+
+class OrderSerializer(serializers.ModelSerializer):
+     class Meta:
+         model = Order
+         fields = ('username', 'id', 'goods')

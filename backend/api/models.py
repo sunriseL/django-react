@@ -19,5 +19,13 @@ class GoodsModel(models.Model):
 
 class Cart(models.Model):
     username = models.CharField(max_length=100)
-    good_id = models.IntegerField()
+    good = models.ForeignKey("GoodsModel")
     number = models.IntegerField()
+    class Meta:
+        unique_together=("username","good")
+
+class Order(models.Model):
+    id = models.IntegerField(primary_key=True, db_column='OId')
+    username = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    goods = models.ManyToManyField("GoodsModel")

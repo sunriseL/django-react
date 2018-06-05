@@ -43,8 +43,9 @@ class StaticHeader extends Component {
       >
         <Menu.Item key="1"><NavLink to="/view">书籍库存</NavLink></Menu.Item>
         <Menu.Item key="2"><NavLink to="/cart">购物车</NavLink></Menu.Item>
-        {!login?<Menu.Item key="3"><NavLink to="/login">登录/注册</NavLink></Menu.Item>:null}
-        {login?<Menu.Item key="4"><NavLink to="/usr/sunrise">用户界面</NavLink></Menu.Item>:null}
+        <Menu.Item key="3"><NavLink to="/order">订单</NavLink></Menu.Item>
+        {!login?<Menu.Item key="4"><NavLink to="/login">登录/注册</NavLink></Menu.Item>:null}
+        {login?<Menu.Item key="5"><NavLink to="/usr/sunrise">用户界面</NavLink></Menu.Item>:null}
       </Menu>
     </Header>
           /*<Toolbar style={{backgroundColor:'#03A9F4'}}>
